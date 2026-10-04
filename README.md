@@ -10,6 +10,17 @@
   </a>
 </p>
 
+## Instrument capabilities
+
+*IMAGE → TRACE* provides an interactive raster-to-vector workflow for testing how field definition, sampling, and threshold selection control extracted geometry.
+
+- **Load a raster source.** Start from the supplied Sentinel-2-derived preview or import a browser-supported JPEG, PNG, or WebP image for analysis.
+- **Derive a scalar field.** Transform multichannel image values into luminance, edge-response, or chroma-based scalar surfaces that can be contoured.
+- **Control sampling density.** Change the evaluation grid to examine how spatial sampling affects line detail, small-feature retention, and computational resolution.
+- **Set contour thresholds.** Define one or multiple scalar levels and immediately compare how level selection changes the extracted isoline structure.
+- **Extract vector geometry.** Apply Marching Squares to identify level crossings and construct connected linework from the sampled scalar field.
+- **Compare and export results.** Toggle raster and vector representations for visual inspection, then export the resulting composition or linework as PNG or SVG.
+
 ## Analytical model
 
 Let the input image be represented as a raster field **I(x, y)**. The instrument transforms that field into a scalar response **f(x, y)** using luminance, edge, or chroma operators. Contours are then constructed as approximations to level sets of the form **f(x, y) = c**, where **c** is a user-selected threshold or contour level.
