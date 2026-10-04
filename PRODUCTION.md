@@ -1,23 +1,22 @@
 # Production contract
 
-## Runtime baseline
+`image-to-trace` is the public entrypoint for the production *IMAGE → TRACE* instrument.
 
-This repository mounts the Image → Trace production workbench from `GeoGeekLab/GeoGeekLab.github.io` pinned to commit `d949bd75870bfd49f6d12b297e6cca02de107f9c`.
+## Runtime
 
-The production runtime supports luminance, edge, and chroma scalar fields; Marching Squares contours; compare, overlay, trace, and mask views; local image input; and SVG/PNG export.
+- Source repository: `GeoGeekLab/GeoGeekLab.github.io`
+- Tested source revision: `064ce2c718499fc26a744a9e58cad09d97a323fb`
+- Production channel: `https://geogeeklab.github.io/`
+- Shared bootstrap: `/core/observatory-entry.js`
+- Workbench runtime: `/figure-analysis-workbench.js`
+- Provider control: `/core/provider-stability.js` + `/core/data-supply.js`
 
-## Data contract
+The entrypoint uses the main Observatory origin as its document base, so the production sample raster and runtime-relative assets resolve to the same paths used by the main Lab.
 
-- Default sample: a version-pinned Sentinel-2 preview sourced from the Global Fishing Watch frontend repository.
-- Local input: JPEG, PNG, or WebP selected by the user and processed in the browser.
-- Processing: scalar-field derivation and contour extraction occur locally in the browser.
+## Raster and vector processing
 
-## Interpretation limits
+The production workbench loads the maintained Sentinel-2-derived sample from `/assets/lab/sentinel2.jpg`, supports browser-selected raster inputs, derives scalar fields, extracts level sets with Marching Squares, and exports rendered/vector output through the main runtime.
 
-Contours represent equal values in an image-derived scalar field. They are not terrain contours, elevation, or direct physical measurements.
+## Release checks
 
-## Deployment contract
-
-`main` deploys through GitHub Pages Actions. Static contract checks run before the Pages artifact is uploaded.
-
-The production runtime is pinned to an immutable source commit. Runtime upgrades require an explicit pinned-SHA change in `index.html`.
+The repository validates the source revision, shared bootstrap reference, Chromium instrument mount, absence of `.instrument-error`, provider/Data Supply installation, instrument screenshot, Pages deployment, and the deployed public endpoint.
