@@ -1,10 +1,18 @@
-# Image to Trace
+# Image → Trace
 
-**Raster / contour / abstraction.**
+**Raster / scalar field / contour abstraction.**
 
-A standalone GeoGeek Observatory instrument for turning a raster image into luminance isolines and exposing the threshold and sampling decisions behind the abstraction.
+Image → Trace is an independent GeoGeek Observatory deployment of the production image-analysis workbench. It derives luminance, edge, or chroma fields from an image, extracts Marching Squares contours, compares raster and trace representations, accepts local images, and exports SVG or PNG output.
 
-## Run locally
+## Public instrument
+
+https://geogeeklab.github.io/image-to-trace/
+
+## Runtime
+
+The production runtime is pinned to a specific commit of `GeoGeekLab/GeoGeekLab.github.io`. See `PRODUCTION.md` for the exact baseline, sample provenance, interpretation limits, and deployment policy.
+
+## Local shell
 
 ```bash
 python -m http.server 8000
@@ -12,14 +20,10 @@ python -m http.server 8000
 
 Open `http://localhost:8000`.
 
+The default sample and pinned runtime require network access. User-selected images are processed locally in the browser.
+
 ## Deployment
 
-GitHub Pages deploys automatically from `main` through `.github/workflows/pages.yml`.
+Pushes to `main` deploy through `.github/workflows/pages.yml`. Static production-contract checks run before the Pages artifact is uploaded.
 
-Public URL: https://geogeeklab.github.io/image-to-trace/
-
-## Provenance
-
-Extracted into an independent repository from the GeoGeek Lab Observatory in `GeoGeekLab/GeoGeekLab.github.io`.
-
-The bundled demonstration references a pinned Sentinel-2 preview from Global Fishing Watch. Upstream material retains its own terms.
+Third-party software and data remain subject to their respective terms and licenses. This repository does not introduce a project license that is absent from the source project.
