@@ -4,7 +4,11 @@
 
 *IMAGE → TRACE* is a raster-analysis instrument for examining how sampled image structure becomes explicit vector geometry. It treats an image as a two-dimensional discrete field, derives scalar response surfaces from pixel values, and extracts level-set geometry with Marching Squares to expose the transition from raster sampling to vector topology.
 
-[![Image → Trace instrument](https://geogeeklab.github.io/image-to-trace/assets/instrument.png)](https://geogeeklab.github.io/image-to-trace/)
+<p align="center">
+  <a href="https://geogeeklab.github.io/image-to-trace/">
+    <img src="https://geogeeklab.github.io/image-to-trace/assets/instrument.png" alt="Image to Trace instrument" width="720">
+  </a>
+</p>
 
 ## Analytical model
 
